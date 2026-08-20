@@ -22,7 +22,7 @@ The tool outputs a Graphviz **topology diagram**, a full **port-mapping CSV** (e
 - [Design assumptions & guardrails](#design-assumptions--guardrails)
 - [Code architecture](#code-architecture)
 - [Roadmap](#roadmap)
-- [License](#license)
+
 
 ---
 
@@ -182,6 +182,4 @@ python3 rail_topology.py --gpus 100000 --gpus-per-node 8 --radix 32
 - [ ] Shared (non-dedicated) spine mode across rails, for switch-count-constrained designs
 - [ ] JSON/YAML topology import for round-tripping existing designs
 
-## License
 
-MIT — use, modify, and adapt freely for your own cluster designs.

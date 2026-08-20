@@ -4,7 +4,8 @@ Generate a **rail-optimized GPU cluster network topology** — the fabric design
 
 The tool outputs a Graphviz **topology diagram**, a full **port-mapping CSV** (every physical link, switch, and port), and a **JSON summary** of switch/link counts — everything a network engineer needs to rack, cable, and configure the fabric.
 
-![Concept: traditional ToR vs rail-optimized](docs/concept_diagram.png)
+<img width="1938" height="441" alt="concept_diagram" src="https://github.com/user-attachments/assets/8e2595c6-fa81-4e5a-9a20-ba535a3ad13f" />
+
 
 ---
 
@@ -57,7 +58,7 @@ gpu_count, gpus_per_node, switch_radix, oversubscription
    *_port_mapping.csv   *_summary.json   *_diagram.(png|svg|pdf)
 ```
 
-![Pipeline flow diagram](docs/flow_diagram.png)
+<img width="1157" height="473" alt="flow_diagram" src="https://github.com/user-attachments/assets/c3d08532-1729-411b-8cb3-b3e7b74b2b09" />
 
 Each of the `gpus_per_node` rails is built as its **own independent 2-tier fat tree** (leaf switches ↔ spine switches), sized from the switch radix and a configurable down:up port split (oversubscription ratio). If a rail's node count fits on a single leaf switch, the spine layer for that rail is skipped entirely. If the fabric would need a 3rd (super-spine) tier to fit within the given radix, the tool stops and tells you exactly why, instead of silently generating an under-provisioned design.
 
@@ -162,7 +163,8 @@ python3 rail_topology.py --gpus 100000 --gpus-per-node 8 --radix 32
 
 ## Code architecture
 
-![Code architecture diagram](docs/architecture_diagram.png)
+<img width="849" height="818" alt="architecture_diagram" src="https://github.com/user-attachments/assets/5e01fed1-9e82-4eb9-a2dd-213087240b5a" />
+
 
 - `TopologyConfig` — validates and holds the four input parameters.
 - `build_topology(cfg)` — the core algorithm: computes port splits, leaf/spine counts, the full node→leaf and leaf→spine port assignment, and enforces the 2-tier guardrail.

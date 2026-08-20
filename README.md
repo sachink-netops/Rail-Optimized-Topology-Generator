@@ -1,3 +1,4 @@
+<img width="1728" height="80" alt="example_1024gpu_diagram" src="https://github.com/user-attachments/assets/3fc2686d-1ef7-440b-9f00-374725344065" />
 # Rail-Optimized Topology Generator
 
 Generate a **rail-optimized GPU cluster network topology** — the fabric design used in NVIDIA DGX SuperPOD-style and Meta RoCE-style AI clusters — from three numbers: total GPU count, GPUs per node, and switch radix.
@@ -128,7 +129,8 @@ Derived quantities and totals — node/rail counts, leaves/spines per rail, tota
 
 128 nodes, 8 rails, 4 leaves + 32 spines *per rail* → 288 switches, 2048 links total.
 
-![1024 GPU example diagram](examples/example_1024gpu_diagram.png)
+<img width="1728" height="80" alt="example_1024gpu_diagram" src="https://github.com/user-attachments/assets/d56231c9-ea0e-4f75-98f3-a9105e35cd0b" />
+
 
 ```bash
 python3 rail_topology.py --gpus 1024 --gpus-per-node 8 --radix 64 --output-dir examples --basename example_1024gpu
@@ -138,7 +140,8 @@ python3 rail_topology.py --gpus 1024 --gpus-per-node 8 --radix 64 --output-dir e
 
 8 nodes fit entirely on one leaf switch per rail, so no spine layer is generated for this size.
 
-![64 GPU example diagram](examples/example_64gpu_single_leaf_diagram.png)
+<img width="1728" height="207" alt="example_64gpu_single_leaf_diagram" src="https://github.com/user-attachments/assets/43521a8d-13f2-4574-ab8a-afdf9c25d44b" />
+
 
 ```bash
 python3 rail_topology.py --gpus 64 --gpus-per-node 8 --radix 32 --output-dir examples --basename example_64gpu_single_leaf
